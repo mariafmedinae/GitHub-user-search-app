@@ -1,15 +1,32 @@
-<main>
-  devfinder
-
+<header>
+  <h1>devfinder</h1>
   Light
   Dark
+</header>
 
-  Search GitHub username...
-  Search
+<main>
+  <form>
+    <input type="search" placeholder="Search GitHub username...">
+    <button>Search</button>
+  </form>
+  <section>
+    <img [src]="user.avatar_url">
+    <h2>{{user.name}}</h2>
+    <p>Joined {{user.created_at}}</p>
+    <p>{{user.login}}</p>
+    <p>{{user.bio}}</p>
+  </section>
+  
+  <ul>
+    <li>Repos {{user.public_repos}}</li>
+    <li>Followers {{user.followers}}</li>
+    <li>Following {{user.following}}</li>
+  </ul>
 
-  Joined
-
-  Repos
-  Followers
-  Following
+  <ul>
+    <li>{{user.location}}</li>
+    <li>{{user.blog}}</li>
+    <li>{{user.twitter_username}}</li>
+    <li>{{user.company}}</li>
+  </ul>
 </main>
