@@ -1,32 +1,41 @@
 <header>
   <h1>devfinder</h1>
-  Light
-  Dark
+  <label class="toggle">
+    <input type="checkbox" class="toggle-input" (change)="toggleTheme($event)">
+    <span class="button "></span>
+  </label>
+   
 </header>
 
 <main>
   <form>
+    <img src="../assets/icon-search.svg" alt="" width="24" height="24">
     <input type="search" placeholder="Search GitHub username...">
     <button>Search</button>
   </form>
-  <section>
-    <img [src]="user.avatar_url">
-    <h2>{{user.name}}</h2>
-    <p>Joined {{user.created_at}}</p>
-    <p>{{user.login}}</p>
-    <p>{{user.bio}}</p>
-  </section>
-  
-  <ul>
-    <li>Repos {{user.public_repos}}</li>
-    <li>Followers {{user.followers}}</li>
-    <li>Following {{user.following}}</li>
-  </ul>
 
-  <ul>
-    <li>{{user.location}}</li>
-    <li>{{user.blog}}</li>
-    <li>{{user.twitter_username}}</li>
-    <li>{{user.company}}</li>
-  </ul>
+  <section class="user">
+    <img [src]="user.avatar_url" alt="User Avatar" width="70" height="70">
+    
+    <section class="user-info">
+      <h2>{{user.name}}</h2>
+      <p>Joined {{user.created_at | date:'d MMM y'}}</p>
+      <p>{{user.login}}</p>      
+    </section>
+
+    <p>{{user.bio || "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros."}}</p>
+
+    <ul class="repos-info">
+      <li>Repos <span class="numbers">{{user.public_repos}}</span></li>
+      <li>Followers <span class="numbers">{{user.followers}}</span></li>
+      <li>Following <span class="numbers">{{user.following}}</span></li>
+    </ul>
+  
+    <ul class="contact-info">
+      <li><img src="../assets/icon-location.svg" alt="" width="14" height="20"> {{user.location  || "Not Available"}}</li>
+      <li><img src="../assets/icon-website.svg" alt="" width="20" height="20"> {{user.blog  || "Not Available"}}</li>
+      <li><img src="../assets/icon-twitter.svg" alt="" width="20" height="16"> {{user.twitter_username  || "Not Available"}}</li>
+      <li><img src="../assets/icon-company.svg" alt="" width="20" height="20"> {{user.company || "Not Available"}}</li>
+    </ul>
+  </section> 
 </main>

@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+$general-colors: (
+    "blue-idle": #0079FF,
+    "blue-hover": #60ABFF,
+    "no-results": #F74646,
+);
+
+$colors-light: (
+    "titles-color": #2B3442,
+    "text-color": #4B6A9B,
+    "date-text": #697C9A,
+    "text-hover": #222731,
+    "body-background": #F6F8FF,
+    "main-background": #FEFEFE,
+);
+
+$colors-dark: (
+    "text-color": #FFFFFF,
+    "text-hover": #90A4D4,
+    "body-background": #141D2F,
+    "main-background": #1E2A47,
+);
+
+@mixin light {
+    @media (prefers-color-scheme: light) {
+        @content;        
+    }    
+}
+
+@mixin dark {
+    @media (prefers-color-scheme: dark) {
+        @content;        
+    }    
+}
+
+@mixin mobile {
+    @media screen and (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media screen and (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media screen and (min-width: 1440px) {
+        @content;        
+    }    
+}

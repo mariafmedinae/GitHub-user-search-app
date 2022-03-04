@@ -1,0 +1,33 @@
+@include light {
+    .button:before {
+        content: "DARK";
+        background: url(../assets/icon-moon.svg) no-repeat right center;
+    }
+    
+    
+    .toggle-input:checked + .button:before {
+        content: "LIGTH";
+        background: url(../assets/icon-sun.svg) no-repeat right center;
+    }
+
+}
+
+
+@include dark {
+    body {
+        color: map-get($colors-dark , text-color);
+        background: map-get($colors-dark , body-background);
+    }
+
+    .button:before {
+        content: "LIGTH";
+        background: url(../assets/icon-sun.svg) no-repeat right center;
+    }
+    
+    
+    .toggle-input:checked + .button:before {
+        content: "DARK";
+        background: url(../assets/icon-moon.svg) no-repeat right center;
+    }
+
+}

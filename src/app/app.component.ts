@@ -3,8 +3,7 @@ import { GithubUsersService } from './github-users.service';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
   user: USER = {
@@ -26,13 +25,18 @@ export class AppComponent implements OnInit {
 
   constructor(private githubUsers: GithubUsersService) {}
 
-  ngOnInit() {
+  ngOnInit() {    
     this.githubUsers.getUser().subscribe(
       (data:USER) => {
         this.user = data
+        this.message = "";
       },
       (error) => {this.message = "No results";}
     )
+  }
+
+  toggleTheme(e: any) {
+    console.log(e.target.checked);
   }
 }
 
